@@ -1,0 +1,254 @@
+/* Print Styles for KAGENO */
+:root {
+    --primary-color: #8e44ad;
+    --secondary-color: #3498db;
+    --border-color: #ddd;
+    --heading-color: #333;
+    --text-color: #444;
+    --priority-high: #ff4d4f;
+    --priority-normal: #1890ff;
+    --priority-low: #52c41a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen {
+    body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    
+    .print-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    /* "Print" button for screen view */
+    .print-button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 20px 0;
+        display: block;
+    }
+    
+    .print-button:hover {
+        background-color: #7d3c98;
+    }
+}
+
+/* Common styles for both screen and print */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.print-header {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.print-header h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.print-header h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.print-date, .print-user {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.info-section {
+    margin-bottom: 30px;
+}
+
+.info-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.info-value {
+    font-size: 16px;
+}
+
+.priority-print {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.high-priority {
+    background-color: var(--priority-high);
+    color: white;
+}
+
+.normal-priority {
+    background-color: var(--priority-normal);
+    color: white;
+}
+
+.low-priority {
+    background-color: var(--priority-low);
+    color: white;
+}
+
+.notes-list {
+    margin-top: 15px;
+}
+
+.note-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 14px;
+}
+
+.note-user {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.note-date {
+    color: #777;
+}
+
+.note-content {
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.print-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Print-specific styles */
+@media print {
+    body {
+        background: white;
+        font-size: 12pt;
+        color: black;
+    }
+    
+    .print-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+    
+    .print-header h1 {
+        font-size: 22pt;
+    }
+    
+    .print-header h2 {
+        font-size: 18pt;
+    }
+    
+    .info-section h3 {
+        font-size: 14pt;
+    }
+    
+    .priority-print {
+        border: 1px solid #000;
+    }
+    
+    .high-priority {
+        background-color: white !important;
+        color: black !important;
+        border: 2px solid var(--priority-high) !important;
+    }
+    
+    .normal-priority {
+        background-color: white !important;
+        color: black !important;
+        border: 2px solid var(--priority-normal) !important;
+    }
+    
+    .low-priority {
+        background-color: white !important;
+        color: black !important;
+        border: 2px solid var(--priority-low) !important;
+    }
+    
+    .note-item {
+        border-color: #aaa;
+        background: white;
+    }
+    
+    /* Page break rules */
+    .info-section {
+        page-break-inside: avoid;
+    }
+    
+    .note-item {
+        page-break-inside: avoid;
+    }
+    
+    .print-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
